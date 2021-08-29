@@ -11,9 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class Greet {
     @GetMapping("/greet")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(
+            @RequestParam(name="namein", required=false, defaultValue="First") String name,
+            @RequestParam(name="namein1", required=false, defaultValue="Last") String name1,
+            Model model) {
         // @RequestParam handles required and default values, name and model are class variables, model looking like JSON
-        model.addAttribute("name", name); // MODEL is passed to html
+        model.addAttribute("nameout", name+" "+name1); // MODEL is passed to html
         return "greet"; // returns HTML VIEW (greeting)
+    }
+
+    @GetMapping("/greet2")
+    public String greeting2(){
+
+        return "greet2";
     }
 }

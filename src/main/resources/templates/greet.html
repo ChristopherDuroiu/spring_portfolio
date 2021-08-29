@@ -16,9 +16,13 @@
       <form action="/greet" method="GET" id="greetForm">
         <div>
           <label for="greetField">Type a greeting name?</label>
-          <input name="name" id="greetField">
+          <input name="namein" id="greetField">
+          <div></div>
+          <label for="greetField1">Type another greeting name?</label>
+          <input name="namein1" id="greetField1">
           <button>Greetings!</button>
-          <p th:text="'Greetings, ' + ${name} + '!'"></p>
+          <button>Do what?</button>
+          <p th:text="'Greetings, ' + ${nameout} + '!'"></p>
         </div>
       </form>
     </div>
